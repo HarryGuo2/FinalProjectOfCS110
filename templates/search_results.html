@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Search Results for "{{ keywords }}"</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Image</th>
+                {% if show_source %}<th>Source</th>{% endif %}
+                {% if show_author %}<th>Author</th>{% endif %}
+                {% if show_description %}<th>Description</th>{% endif %}
+                {% if show_published_at %}<th>Published At</th>{% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in results %}
+                <tr>
+                    <td><a href="{{ article.url }}" target="_blank" style="color: deepblue;">{{ article.title }}</a></td>
+                    <td>{% if article.urlToImage %}<img src="{{ article.urlToImage }}" width="200" height="200" alt="Image">{% endif %}</td>
+                    {% if show_source %}<td>{{ article.source.name }}</td>{% endif %}
+                    {% if show_author %}<td>{{ article.author }}</td>{% endif %}
+                    {% if show_description %}<td>{{ article.description }}</td>{% endif %}
+                    {% if show_published_at %}<td>{{ article.publishedAt }}</td>{% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

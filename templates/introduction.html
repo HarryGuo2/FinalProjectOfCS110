@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to News World</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to News World</h1>
+    <p>You can search for the news you want to know.</p>
+    <p>There are two options:</p>
+    <ol>
+        <li>
+            First option: You can search for specific news by inputting keywords.
+            <a href="{{ url_for('search_news') }}">Go to Search</a>
+        </li>
+        <li>
+            Second option: You can look at the trends in a country or a category.
+            <a href="{{ url_for('view_trends') }}">Go to Trends</a>
+        </li>
+    </ol>
+</body>
+</html>
+

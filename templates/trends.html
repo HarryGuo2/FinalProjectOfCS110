@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See Trends</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>See Trends</h1>
+    <form action="{{ url_for('view_trends') }}" method="post">
+        <p>Hi! You can look at the trends in a country or a category.</p>
+
+        <label for="country">Pick the country:</label>
+        <select id="country" name="country" required>
+            <option value="us">the United States</option>
+            <option value="gb">the United Kingdom</option>
+            <option value="cn">China</option>
+            <option value="fr">France</option>
+            <option value="de">Germany</option>
+            <option value="jp">Japan</option>
+            <option value="sa">Saudi Arabia</option>
+            <option value="mx">Mexico</option>
+        </select>
+
+        <label for="category">Pick the category you are interested:</label>
+        <select id="category" name="category" required>
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="general">General</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+        </select>
+
+        <fieldset>
+            <legend>Choose other parts of the news you want to show:</legend>
+            <label><input type="checkbox" name="show_source"> Source</label>
+            <label><input type="checkbox" name="show_author"> Author</label>
+            <label><input type="checkbox" name="show_description"> Description</label>
+            <label><input type="checkbox" name="show_published_at"> Published At</label>
+        </fieldset>
+
+        <input type="submit" value="See Trends">
+    </form>
+</body>
+</html>
+
